@@ -8,7 +8,7 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [loggedInUserData, setLoggedInUserData] = useState(null)
-  const authData = useContext(AuthContext)
+  const [userData,setuserData] = useContext(AuthContext)
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -17,34 +17,43 @@ const App = () => {
       setUser(userData.role);
       setLoggedInUserData(userData.dat);
     }
-  })
+  }, []);
 
-
-
-  const handleLogin = (email, password) => {
-    if (email === "admin@me.com" && password === "123") {
-      setUser("admin");
-      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
-    }
-    else if (authData) {
-      const employee = authData.employees.find((e) => e.email === email && e.password === password)
-      if (employee) {
-        setUser("employee");
-        setLoggedInUserData(employee);
-        localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee", dat: employee }));
+  useEffect(() => {
+    if (user === "employee" && userData && loggedInUserData) {
+      const updatedUser = userData.find(u => u.email === loggedInUserData.email);
+      if (updatedUser) {
+        setLoggedInUserData(updatedUser);
       }
     }
-    else {
-      alert("Invalid credentials, please try again.");
+  }, [userData, user, loggedInUserData]);
+
+
+
+const handleLogin = (email, password) => {
+  if (email === "admin@me.com" && password === "123") {
+    setUser("admin");
+    localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+  }
+  else if (userData) {
+    const employee = userData.find((e) => e.email === email && e.password === password)
+    if (employee) {
+      setUser("employee");
+      setLoggedInUserData(employee);
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee", dat: employee }));
     }
   }
+  else {
+    alert("Invalid credentials, please try again.");
+  }
+}
 
-  return (
-    <>
-      {!user ? <Login handleLogin={handleLogin} /> : ""}
-      {user === "admin" ? <AdminDashboard /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} /> : null)}
-    </>
-  )
+return (
+  <>
+    {!user ? <Login handleLogin={handleLogin} /> : ""}
+    {user === "admin" ? <AdminDashboard changeUser={setUser} /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} /> : null)}
+  </>
+)
 }
 
 export default App
