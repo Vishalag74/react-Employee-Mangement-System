@@ -32,10 +32,20 @@ const employees = [
                 "failed": false
             },
             {
-                "taskTitle": "UptaskDate CRM",
-                "taskDescription": "Log all new leads from last week.",
+                "taskTitle": "Schedule client meeting",
+                "taskDescription": "Arrange a meeting with the client regarding new terms.",
+                "taskDate": "2025-06-13",
+                "category": "Client Relations",
+                "active": true,
+                "newTask": false,
+                "completed": false,
+                "failed": false
+            },
+            {
+                "taskTitle": "Update CRM records",
+                "taskDescription": "Log all lead interactions from previous week.",
                 "taskDate": "2025-06-09",
-                "category": "Data Entry",
+                "category": "Data Management",
                 "active": false,
                 "newTask": false,
                 "completed": true,
@@ -56,8 +66,8 @@ const employees = [
         },
         "tasks": [
             {
-                "taskTitle": "Prepare presentation",
-                "taskDescription": "Create slides for upcoming pitch.",
+                "taskTitle": "Prepare pitch deck",
+                "taskDescription": "Design slides for new client pitch.",
                 "taskDate": "2025-06-12",
                 "category": "Design",
                 "active": true,
@@ -66,8 +76,28 @@ const employees = [
                 "failed": false
             },
             {
-                "taskTitle": "Team meeting",
-                "taskDescription": "Attend bi-weekly team sync.",
+                "taskTitle": "Review code",
+                "taskDescription": "Inspect the recent merge requests.",
+                "taskDate": "2025-06-10",
+                "category": "Code Review",
+                "active": true,
+                "newTask": false,
+                "completed": false,
+                "failed": false
+            },
+            {
+                "taskTitle": "Audit feature changes",
+                "taskDescription": "Check QA merge logs and improvements.",
+                "taskDate": "2025-06-11",
+                "category": "Quality Control",
+                "active": true,
+                "newTask": false,
+                "completed": false,
+                "failed": false
+            },
+            {
+                "taskTitle": "Weekly team meeting",
+                "taskDescription": "Join the regular team alignment session.",
                 "taskDate": "2025-06-08",
                 "category": "Meeting",
                 "active": false,
@@ -76,24 +106,14 @@ const employees = [
                 "failed": false
             },
             {
-                "taskTitle": "Fix bug #401",
-                "taskDescription": "Resolve UI issue in dashboard.",
+                "taskTitle": "Resolve UI glitch",
+                "taskDescription": "Fix overlapping buttons on homepage.",
                 "taskDate": "2025-06-07",
-                "category": "Development",
+                "category": "Bug Fixing",
                 "active": false,
                 "newTask": false,
                 "completed": false,
                 "failed": true
-            },
-            {
-                "taskTitle": "Code review",
-                "taskDescription": "Review PRs from QA team.",
-                "taskDate": "2025-06-10",
-                "category": "Development",
-                "active": true,
-                "newTask": false,
-                "completed": false,
-                "failed": false
             }
         ]
     },
@@ -110,44 +130,54 @@ const employees = [
         },
         "tasks": [
             {
-                "taskTitle": "Onboard intern",
-                "taskDescription": "Help new intern set up accounts.",
-                "taskDate": "2025-06-09",
-                "category": "HR",
-                "active": false,
-                "newTask": false,
-                "completed": true,
-                "failed": false
-            },
-            {
-                "taskTitle": "System backup",
-                "taskDescription": "Backup all department files.",
+                "taskTitle": "Initiate server backup",
+                "taskDescription": "Start full backup of all departmental machines.",
                 "taskDate": "2025-06-10",
-                "category": "IT",
+                "category": "IT Support",
                 "active": true,
                 "newTask": true,
                 "completed": false,
                 "failed": false
             },
             {
-                "taskTitle": "Policy uptaskDate",
-                "taskDescription": "UptaskDate remote work policy document.",
-                "taskDate": "2025-06-08",
-                "category": "Admin",
-                "active": false,
-                "newTask": false,
-                "completed": false,
-                "failed": true
-            },
-            {
-                "taskTitle": "Server maintenance",
-                "taskDescription": "Monitor system during patch uptaskDate.",
+                "taskTitle": "Patch server modules",
+                "taskDescription": "Ensure stability during latest patch update.",
                 "taskDate": "2025-06-11",
-                "category": "IT",
+                "category": "Infrastructure",
                 "active": true,
                 "newTask": false,
                 "completed": false,
                 "failed": false
+            },
+            {
+                "taskTitle": "Test server logs",
+                "taskDescription": "Monitor real-time server response during update.",
+                "taskDate": "2025-06-12",
+                "category": "Infrastructure",
+                "active": true,
+                "newTask": false,
+                "completed": false,
+                "failed": false
+            },
+            {
+                "taskTitle": "Guide intern setup",
+                "taskDescription": "Support intern with initial tool access.",
+                "taskDate": "2025-06-09",
+                "category": "Human Resources",
+                "active": false,
+                "newTask": false,
+                "completed": true,
+                "failed": false
+            },
+            {
+                "taskTitle": "Update work policy",
+                "taskDescription": "Revise and circulate the updated remote policy.",
+                "taskDate": "2025-06-08",
+                "category": "Compliance",
+                "active": false,
+                "newTask": false,
+                "completed": false,
+                "failed": true
             }
         ]
     },
@@ -164,35 +194,45 @@ const employees = [
         },
         "tasks": [
             {
-                "taskTitle": "Draft newsletter",
-                "taskDescription": "Write June company newsletter.",
-                "taskDate": "2025-06-09",
-                "category": "Marketing",
-                "active": false,
-                "newTask": false,
-                "completed": true,
-                "failed": false
-            },
-            {
-                "taskTitle": "Social media plan",
-                "taskDescription": "Create content calendar for July.",
+                "taskTitle": "Plan campaign content",
+                "taskDescription": "Outline social media posts for July launch.",
                 "taskDate": "2025-06-12",
-                "category": "Marketing",
+                "category": "Digital Strategy",
                 "active": true,
                 "newTask": true,
                 "completed": false,
                 "failed": false
             },
             {
-                "taskTitle": "SEO audit",
-                "taskDescription": "Run audit on landing page.",
+                "taskTitle": "Landing page audit",
+                "taskDescription": "Check and optimize SEO factors on homepage.",
                 "taskDate": "2025-06-10",
-                "category": "Marketing",
+                "category": "SEO",
                 "active": true,
                 "newTask": false,
                 "completed": false,
                 "failed": false
-            }
+            },
+            {
+                "taskTitle": "Keyword performance review",
+                "taskDescription": "Analyze top keyword rankings for June.",
+                "taskDate": "2025-06-11",
+                "category": "SEO",
+                "active": true,
+                "newTask": false,
+                "completed": false,
+                "failed": false
+            },
+            {
+                "taskTitle": "Write monthly digest",
+                "taskDescription": "Draft the June newsletter content.",
+                "taskDate": "2025-06-09",
+                "category": "Internal Comms",
+                "active": false,
+                "newTask": false,
+                "completed": true,
+                "failed": false
+            },
         ]
     },
     {
@@ -208,40 +248,50 @@ const employees = [
         },
         "tasks": [
             {
-                "taskTitle": "Inventory check",
-                "taskDescription": "Audit supply room and record missing items.",
-                "taskDate": "2025-06-08",
-                "category": "Operations",
-                "active": false,
-                "newTask": false,
-                "completed": true,
-                "failed": false
-            },
-            {
-                "taskTitle": "Vendor call",
-                "taskDescription": "Discuss contract terms with vendor.",
+                "taskTitle": "Call supplier rep",
+                "taskDescription": "Discuss renewal and pricing options with vendor.",
                 "taskDate": "2025-06-10",
-                "category": "Procurement",
+                "category": "Vendor Relations",
                 "active": true,
                 "newTask": true,
                 "completed": false,
                 "failed": false
             },
             {
-                "taskTitle": "Budget forecast",
-                "taskDescription": "Prepare Q3 budget proposal.",
+                "taskTitle": "Q3 budget planning",
+                "taskDescription": "Draft proposal for Q3 department expenditures.",
                 "taskDate": "2025-06-11",
-                "category": "Finance",
+                "category": "Financial Planning",
                 "active": true,
                 "newTask": false,
                 "completed": false,
                 "failed": false
             },
             {
-                "taskTitle": "Expense review",
-                "taskDescription": "Verify last month’s expenses.",
+                "taskTitle": "Analyze expense trends",
+                "taskDescription": "Review patterns in past month’s expenditures.",
+                "taskDate": "2025-06-12",
+                "category": "Accounting",
+                "active": true,
+                "newTask": false,
+                "completed": false,
+                "failed": false
+            },
+            {
+                "taskTitle": "Supply inventory check",
+                "taskDescription": "Review and update inventory in supply storage.",
+                "taskDate": "2025-06-08",
+                "category": "Logistics",
+                "active": false,
+                "newTask": false,
+                "completed": true,
+                "failed": false
+            },
+            {
+                "taskTitle": "Reconcile expense errors",
+                "taskDescription": "Identify and report mismatches in April’s expenses.",
                 "taskDate": "2025-06-07",
-                "category": "Finance",
+                "category": "Audit",
                 "active": false,
                 "newTask": false,
                 "completed": false,
@@ -250,6 +300,7 @@ const employees = [
         ]
     }
 ];
+
 
 
 const admin = [{

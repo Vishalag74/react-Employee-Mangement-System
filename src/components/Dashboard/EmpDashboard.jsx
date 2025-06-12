@@ -5,10 +5,14 @@ import TaskList from '../TaskLists/TaskList'
 
 const EmpDashboard = (props) => {
     return (
-        <div className='p-10 h-screen bg-[#1C1C1C]'>
+<div className="p-10 h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 text-gray-900">
             <Header changeUser={props.changeUser} data={props.data} />
-            <TaskListNum data={props.data} />
-            <TaskList data={props.data} />
+            {props.data && (
+                <>
+                    <TaskListNum data={props.data} />
+                    <TaskList data={props.data} />
+                </>
+            )}
         </div>
     )
 }

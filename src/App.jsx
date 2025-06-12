@@ -3,12 +3,16 @@ import Login from './components/Auth/Login'
 import EmpDashboard from './components/Dashboard/EmpDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
+import ForgetPassword from './components/Auth/ForgetPassword'
 
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [loggedInUserData, setLoggedInUserData] = useState(null)
   const [userData,setuserData] = useContext(AuthContext)
+
+  // New state to track showing ForgetPassword page
+  const [showForgetPassword, setShowForgetPassword] = useState(false);
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -48,10 +52,25 @@ const handleLogin = (email, password) => {
   }
 }
 
-return (
+// Function to show ForgetPassword page
+const handleShowForgetPassword = () => {
+  setShowForgetPassword(true);
+}
+
+// Function to go back to Login page
+const handleBackToLogin = () => {
+  setShowForgetPassword(false);
+}
+
+  const handleTaskCreated = (updatedUser) => {
+    setLoggedInUserData(updatedUser);
+  }
+
+  return (
   <>
-    {!user ? <Login handleLogin={handleLogin} /> : ""}
-    {user === "admin" ? <AdminDashboard changeUser={setUser} /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} /> : null)}
+    {!user && !showForgetPassword ? <Login handleLogin={handleLogin} onForgetPasswordClick={handleShowForgetPassword} /> : ""}
+    {!user && showForgetPassword ? <ForgetPassword onBackToLogin={handleBackToLogin} /> : ""}
+    {user === "admin" ? <AdminDashboard changeUser={setUser} /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} onTaskCreated={handleTaskCreated} /> : null)}
   </>
 )
 }
