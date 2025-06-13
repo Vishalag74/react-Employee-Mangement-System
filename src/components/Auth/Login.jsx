@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ForgetPassword from './ForgetPassword';
 
 const Login = ({ handleLogin, onForgetPasswordClick }) => {
 

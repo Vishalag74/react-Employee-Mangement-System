@@ -9,7 +9,7 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [loggedInUserData, setLoggedInUserData] = useState(null)
-  const [userData,setuserData] = useContext(AuthContext)
+  const [userData, setuserData] = useContext(AuthContext)
 
   // New state to track showing ForgetPassword page
   const [showForgetPassword, setShowForgetPassword] = useState(false);
@@ -32,47 +32,45 @@ const App = () => {
     }
   }, [userData, user, loggedInUserData]);
 
-
-
-const handleLogin = (email, password) => {
-  if (email === "admin@me.com" && password === "123") {
-    setUser("admin");
-    localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
-  }
-  else if (userData) {
-    const employee = userData.find((e) => e.email === email && e.password === password)
-    if (employee) {
-      setUser("employee");
-      setLoggedInUserData(employee);
-      localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee", dat: employee }));
+  const handleLogin = (email, password) => {
+    if (email === "admin@me.com" && password === "123") {
+      setUser("admin");
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+    }
+    else if (userData) {
+      const employee = userData.find((e) => e.email === email && e.password === password)
+      if (employee) {
+        setUser("employee");
+        setLoggedInUserData(employee);
+        localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee", dat: employee }));
+      }
+    }
+    else {
+      alert("Invalid credentials, please try again.");
     }
   }
-  else {
-    alert("Invalid credentials, please try again.");
+
+  // Function to show ForgetPassword page
+  const handleShowForgetPassword = () => {
+    setShowForgetPassword(true);
   }
-}
 
-// Function to show ForgetPassword page
-const handleShowForgetPassword = () => {
-  setShowForgetPassword(true);
-}
-
-// Function to go back to Login page
-const handleBackToLogin = () => {
-  setShowForgetPassword(false);
-}
+  // Function to go back to Login page
+  const handleBackToLogin = () => {
+    setShowForgetPassword(false);
+  }
 
   const handleTaskCreated = (updatedUser) => {
     setLoggedInUserData(updatedUser);
   }
 
   return (
-  <>
-    {!user && !showForgetPassword ? <Login handleLogin={handleLogin} onForgetPasswordClick={handleShowForgetPassword} /> : ""}
-    {!user && showForgetPassword ? <ForgetPassword onBackToLogin={handleBackToLogin} /> : ""}
-    {user === "admin" ? <AdminDashboard changeUser={setUser} /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} onTaskCreated={handleTaskCreated} /> : null)}
-  </>
-)
+    <>
+      {!user && !showForgetPassword ? <Login handleLogin={handleLogin} onForgetPasswordClick={handleShowForgetPassword} /> : ""}
+      {!user && showForgetPassword ? <ForgetPassword onBackToLogin={handleBackToLogin} /> : ""}
+      {user === "admin" ? <AdminDashboard changeUser={setUser} /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} onTaskCreated={handleTaskCreated} /> : null)}
+    </>
+  )
 }
 
 export default App

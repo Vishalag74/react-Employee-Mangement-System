@@ -11,8 +11,6 @@ const CreateTask = ({ onTaskCreated }) => {
     const [assignTo, setassignTo] = useState('')
     const [category, setcategory] = useState('')
 
-    // const [newTask, setnewTask] = useState([])
-
     const submitHandler = (e) => {
         e.preventDefault()
 
@@ -56,28 +54,28 @@ const CreateTask = ({ onTaskCreated }) => {
                 <div className='w-1/2 space-y-8'>
                     <div>
                         <h3 className='text-lg text-indigo-900 font-bold mb-3'>Task Title</h3>
-                        <input
+                        <input required
                             value={taskTitle}
                             onChange={(e) => setTaskTitle(e.target.value)}
                             className='text-lg py-4 px-5 w-full rounded-xl outline-none bg-indigo-50 border border-indigo-300 shadow-md placeholder: text-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out' type="text" placeholder='Enter Task Title' />
                     </div>
                     <div>
                         <h3 className='text-lg text-indigo-900 font-bold mb-3'>Date</h3>
-                        <input
+                        <input required
                             value={taskDate}
                             onChange={(e) => setTaskDate(e.target.value)}
                             className='text-lg py-4 px-5 w-full rounded-xl outline-none bg-indigo-50 border border-indigo-300 shadow-md placeholder: text-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out' type="date" />
                     </div>
                     <div>
                         <h3 className='text-lg text-indigo-900 font-bold mb-3'>Assign to</h3>
-                        <input
+                        <input required
                             value={assignTo}
                             onChange={(e) => setassignTo(e.target.value)}
                             className='text-lg py-4 px-5 w-full rounded-xl outline-none bg-indigo-50 border border-indigo-300 shadow-md placeholder: text-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out' type="text" placeholder='Employee Name' />
                     </div>
                     <div>
                         <h3 className='text-lg text-indigo-900 font-bold mb-3'>Category</h3>
-                        <input
+                        <input required
                             value={category}
                             onChange={(e) => setcategory(e.target.value)}
                             className='text-lg py-4 px-5 w-full rounded-xl outline-none bg-indigo-50 border border-indigo-300 shadow-md placeholder: text-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out' type="text" placeholder='Design, Dev, etc.' />
@@ -86,7 +84,7 @@ const CreateTask = ({ onTaskCreated }) => {
 
                 <div className='w-2/5 flex flex-col items-start space-y-6'>
                     <h3 className='text-lg text-indigo-900 font-bold mb-3'>Description</h3>
-                    <textarea
+                    <textarea required
                         value={taskDescription}
                         onChange={(e) => setTaskDescription(e.target.value)}
                         className='w-full h-52 text-lg py-4 px-6 rounded-xl outline-none bg-indigo-50 border border-indigo-300 shadow-md placeholder: text-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out resize-none' name="" id="" cols="30" rows="10" placeholder='Enter The Description...'></textarea>
