@@ -20,7 +20,7 @@ const ForgetPassword = ({ onBackToLogin }) => {
                 <div className="relative w-full mb-6 flex justify-center">
                     <button
                         onClick={onBackToLogin}
-                        className="absolute -top-6 left-0 text-indigo-500 hover:text-indigo-800 text-xl cursor-pointer"
+                        className="absolute -top-8 -left-8 text-indigo-500 hover:text-indigo-800 text-xl cursor-pointer"
                         aria-label="Back to Login">
                         <FaArrowLeft />
                     </button>
