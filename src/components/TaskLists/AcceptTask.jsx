@@ -75,16 +75,16 @@ const AcceptTask = ({ data }) => {
     }
 
     return (
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-yellow-200 rounded-2xl shadow-md'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-200 text-sm px-3 py-1 rounded text-red-700 '>{data.category}</h3>
-                <h4 className='text-sm text-gray-700'>{data.taskDate}</h4>
+        <div className='w-full h-auto p-3 sm:p-4 md:p-5 bg-yellow-200 rounded-xl sm:rounded-2xl shadow-md'>
+            <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2'>
+                <h3 className='bg-red-200 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded text-red-700 w-fit'>{data.category}</h3>
+                <h4 className='text-xs sm:text-sm text-gray-700'>{data.taskDate}</h4>
             </div>
-            <h2 className='text-2xl font-semibold mt-5 text-gray-900'>{data.taskTitle}</h2>
-            <p className='text-sm mt-2 text-gray-700'>{data.taskDescription}</p>
-            <div className='flex justify-between mt-5'>
-                <button onClick={markCompleted} className='bg-indigo-500 hover:bg-indigo-600 py-1 px-2 text-sm text-white rounded-md shadow-sm transition'>Mark as Completed</button>
-                <button onClick={markFailed} className='bg-red-500 hover:bg-red-600 py-1 px-2 text-sm text-white rounded-md shadow-sm transition'>Mark as Failed</button>
+            <h2 className='text-lg sm:text-xl md:text-2xl font-semibold mt-3 sm:mt-4 md:mt-5 text-gray-900'>{data.taskTitle}</h2>
+            <p className='text-xs sm:text-sm mt-2 text-gray-700 line-clamp-3 sm:line-clamp-4'>{data.taskDescription}</p>
+            <div className='flex flex-col sm:flex-row gap-2 mt-3 sm:mt-4'>
+                <button onClick={markCompleted} className='flex-1 sm:flex-none bg-indigo-500 hover:bg-indigo-600 py-2 px-3 text-xs sm:text-sm text-white rounded-md shadow-sm transition'>Mark Completed</button>
+                <button onClick={markFailed} className='flex-1 sm:flex-none bg-red-500 hover:bg-red-600 py-2 px-3 text-xs sm:text-sm text-white rounded-md shadow-sm transition'>Mark Failed</button>
             </div>
         </div>
     )

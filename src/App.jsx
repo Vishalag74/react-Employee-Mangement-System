@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import Home from './components/Auth/Home'
 import Login from './components/Auth/Login'
 import EmpDashboard from './components/Dashboard/EmpDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
-import ForgetPassword from './components/Auth/ForgetPassword'
 
 const App = () => {
 
@@ -33,7 +34,7 @@ const App = () => {
   }, [userData, user, loggedInUserData]);
 
   const handleLogin = (email, password) => {
-    if (email === "admin@me.com" && password === "123") {
+    if (email === "admin@gmail.com" && password === "123") {
       setUser("admin");
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
     }
@@ -65,11 +66,28 @@ const App = () => {
   }
 
   return (
-    <>
-      {!user && !showForgetPassword ? <Login handleLogin={handleLogin} onForgetPasswordClick={handleShowForgetPassword} /> : ""}
-      {!user && showForgetPassword ? <ForgetPassword onBackToLogin={handleBackToLogin} /> : ""}
-      {user === "admin" ? <AdminDashboard changeUser={setUser} /> : (user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} onTaskCreated={handleTaskCreated} /> : null)}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/login" element={
+          !user ? (
+            !showForgetPassword ? (
+              <Login handleLogin={handleLogin} onForgetPasswordClick={handleShowForgetPassword} />
+            ) : (
+              <ForgetPassword onBackToLogin={handleBackToLogin} />
+            )
+          ) : (
+            <Navigate to={user === "admin" ? "/admin" : "/employee"} />
+          )
+        } />
+        <Route path="/admin" element={
+          user === "admin" ? <AdminDashboard changeUser={setUser} /> : <Navigate to="/login" />
+        } />
+        <Route path="/employee" element={
+          user === "employee" ? <EmpDashboard data={loggedInUserData} changeUser={setUser} onTaskCreated={handleTaskCreated} /> : <Navigate to="/login" />
+        } />
+      </Routes>
+    </Router>
   )
 }
 
