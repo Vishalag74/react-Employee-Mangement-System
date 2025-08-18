@@ -72,13 +72,13 @@ const Login = ({ handleLogin }) => {
                     <input required
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        className='outline-none border-2 bg-indigo-50 border-indigo-400 text-base sm:text-lg md:text-xl rounded-full py-2 sm:py-3 px-4 sm:px-6 placeholder:text-indigo-600 shadow-sm focus:ring-4 focus:ring-indigo-300 transition w-full'
+                        className='outline-none text-indigo-600 border-2 bg-indigo-50 border-indigo-400 text-base sm:text-lg md:text-xl rounded-full py-2 sm:py-3 px-4 sm:px-6 placeholder:text-indigo-600 shadow-sm focus:ring-4 focus:ring-indigo-300 transition w-full'
                         type="email"
                         placeholder='Enter your email' />
                     <input required
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        className='outline-none border-2 mt-4 sm:mt-6 bg-indigo-50 border-indigo-400 text-base sm:text-lg md:text-xl rounded-full py-2 sm:py-3 px-4 sm:px-6 placeholder:text-indigo-600 shadow-sm focus:ring-4 focus:ring-indigo-300 transition w-full'
+                        className='outline-none text-indigo-600 border-2 mt-4 sm:mt-6 bg-indigo-50 border-indigo-400 text-base sm:text-lg md:text-xl rounded-full py-2 sm:py-3 px-4 sm:px-6 placeholder:text-indigo-600 shadow-sm focus:ring-4 focus:ring-indigo-300 transition w-full'
                         type="password"
                         placeholder='Enter password' />
                     <button
